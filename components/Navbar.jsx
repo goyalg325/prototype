@@ -12,10 +12,10 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav>
-      <ul className='flex w-full m-auto p-auto '>
+    <nav className='mx-auto'>
+      <ul className='flex w-full mx-auto '>
         {pages.map(page => (
-          <li key={page.route}>
+          <li key={page.route} className='mx-3 text-orange-400 '>
             <Link href={`/${page.route}`}>
               {page.title}
             </Link>

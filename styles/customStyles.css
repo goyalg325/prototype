@@ -1,0 +1,94 @@
+/* styles/customStyles.css */
+.paragraph-style-1 {
+    background-color: #e32bbb; /* Page background */
+    color : white;
+   margin:  3px;
+padding: 3px;
+width: 80%;
+    margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+
+  }
+  
+  .paragraph-style-2 {
+    background-color: #ffa500; /* Orange background */
+    border-radius: 5px; /* Enclosed in a box */
+    padding: 10px;
+    margin: 5px;
+    width: 80%;
+    margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  }
+  
+  .paragraph-style-3 {
+    background-color: #4adce7; /* Orange background */
+    border-radius: 5px; /* Enclosed in a box */
+    padding: 10px;
+    margin: 5px;
+    width: 80%;
+    margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+
+  }
+  
+  .paragraph-style-4 {
+    background-color: #bbc287; /* Page background */
+    margin: 5px;
+    width: 80%;
+    margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+}
+  
+  .paragraph-style-5 {
+    background-color: #ffa500; /* Orange background */
+    border-radius: 5px; /* Enclosed in a box */
+    padding: 10px;
+    margin: 5px;
+    width: 80%;
+    margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+
+  }
+  
+  .paragraph-style-6 {
+    background-color: #000000; /* Page background */
+    border: 1px solid #ffa500; /* Orange outline */
+    padding: 10px;
+    margin: 5px;
+    width: 80%;
+    margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  }
+  .paragraph-style-7 {
+    background-color: #44da55; /* Orange background */
+    border-radius: 5px; /* Enclosed in a box */
+    padding: 10px;
+    margin: 5px;
+    width: 80%;
+    margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  }
+  
+  /* Highlight links in orange */
+  a {
+    color: #ffa500;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
