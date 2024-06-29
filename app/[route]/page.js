@@ -1,57 +1,46 @@
+// Page component
 'use client';
-
-import { useEffect, useState } from 'react';
-import { usePathname } from 'next/navigation';
+import React, { useEffect, useState } from 'react';
 import parse from 'html-react-parser';
-import '../../styles/customStyles.css';
+import '@/styles/section.css';
 
-const DynamicPage = () => {
-  const pathname = usePathname();
-  const [page, setPage] = useState(null);
-  const route = pathname.substring(1); // Remove the leading '/'
+const Page = ({ params }) => {
+  const { route } = params;
+  const [pageData, setPageData] = useState(null);
 
   useEffect(() => {
-    if (route) {
-      fetch(`/api/pages/${route}`)
-        .then(res => res.json())
-        .then(data => setPage(data.data));
-    }
-  }, [route]);
-
-  if (!page) return <div>Loading...</div>;
-
-  const renderContent = () => {
-    const content = page.content;
-  
-    const parserOptions = {
-      replace: (domNode) => {
-        if (domNode.type === 'tag') {
-          if (domNode.name === 'p' && domNode.children && domNode.children.length > 0) {
-            const className = `paragraph-style-${(Math.floor(Math.random() * 7)) + 1}`;
-            return (
-              <p className={className}>
-                {domNode.children.map(child => typeof child.data === 'string' ? parse(child.data) : child.data)}
-              </p>
-            );
-          } else if (domNode.name === 'div' || domNode.name === 'span') {
-            return <div>{domNode.children.map(child => parse(child.data))}</div>;
-          }
+    const fetchPageData = async () => {
+      try {
+        const response = await fetch(`/api/pages/${route}`);
+        const data = await response.json();
+        if (data.success) {
+          setPageData(data.data);
         }
-        // Return the original node for other types or empty paragraphs
-        return domNode;
+      } catch (error) {
+        console.error('Failed to fetch page data:', error);
       }
     };
-  
-    return parse(content, parserOptions);
-  };
-  
+
+    fetchPageData();
+  }, [route]);
+
+  if (!pageData) {
+    return <div>Loading...</div>;
+  }
+
+  // Parse content with <hr> tags and dynamically assign section classes
+  const sections = pageData.content.split('<hr>').map((content, index) => (
+    <div key={index} className={`section-${index + 1}`}>
+      {parse(content)}
+    </div>
+  ));
 
   return (
     <div>
-      {/* <h1>{page.title}</h1> */}
-      <div>{renderContent()}</div>
+      <h1>{pageData.title}</h1>
+      {sections}
     </div>
   );
 };
 
-export default DynamicPage;
+export default Page;
