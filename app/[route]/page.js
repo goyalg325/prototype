@@ -3,6 +3,7 @@
 import React, { useEffect, useState } from 'react';
 import parse from 'html-react-parser';
 import '@/styles/section.css';
+import "react-quill/dist/quill.core.css";
 
 const Page = ({ params }) => {
   const { route } = params;
@@ -29,16 +30,24 @@ const Page = ({ params }) => {
   }
 
   // Parse content with <hr> tags and dynamically assign section classes
-  const sections = pageData.content.split('<hr>').map((content, index) => (
-    <div key={index} className={`section-${index + 1}`}>
-      {parse(content)}
-    </div>
-  ));
+  const sections = pageData.content.split('<hr>').map((content, index) => {
+    // Calculate section index as 1, 2, or 3
+    const sectionIndex = (index % 3) + 1;
+    // Use a unique key format combining "section-" and sectionIndex
+    const sectionKey = `section-${index}-${sectionIndex}`;
+    return (
+      <div key={sectionKey} className={`section-${sectionIndex} view ql-editor`}>
+        {parse(content)}
+      </div>
+    );
+  });
+  
 
   return (
-    <div>
+    // here adding design that should be evenly applied to complete page in outer div /*make sure to remove it*/
+    <div className='bg-black'> 
       <h1>{pageData.title}</h1>
-      {sections}
+     <div className='story-route-wrapper'> {sections}  </div>
     </div>
   );
 };

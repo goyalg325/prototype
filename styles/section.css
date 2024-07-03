@@ -1,22 +1,106 @@
-.section-1 {
-    background-color: #aa6060; /* Light Red */
-    padding-top: 10px;
-    padding-bottom: 10px;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+   
+.story-route-wrapper {
+  padding : 2rem ;
+}
+
+.story-route-wrapper h1 {
+  font-family: "Bitter", serif;
+  color: #f2f2f2;
+  line-height: 1.5rem;
+  font-size: 30px;
+  font-weight: lighter;
+  letter-spacing: 1.3px;
+  margin-bottom: 1rem;
+}
+
+@media only screen and (max-width: 768px) {
+  .story-route-wrapper h1 {
+    font-size: 20px;
   }
+}
+
+/* .story-route-wrapper p img {
+  width: 100%;
+} */
+.story-route-wrapper .section-1,
+.story-route-wrapper .section-2,
+.story-route-wrapper .section-3 {
+  padding: 2rem;
+  margin: 1rem auto;
+  border-radius: 10px;
+  max-width: 1300px;
+}
+/* i maintianed mobile view till tab width*/
+@media only screen and (max-width: 768px) {
+  .story-route-wrapper .section-1,
+  .story-route-wrapper .section-2,
+  .story-route-wrapper .section-3 {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem; /* Equivalent to px-4 in Tailwind */
+    padding-right: 1rem; /* Equivalent to px-4 in Tailwind */
+    padding-top: 2rem; /* Equivalent to py-8 in Tailwind */
+    padding-bottom: 2rem; /* Equivalent to py-8 in Tailwind */
+  }
+}
+
+.story-route-wrapper .section-1 p img,
+.story-route-wrapper .section-2 p img,
+.story-route-wrapper .section-3 p img {
+ -webkit-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+}
+
+@media only screen and (max-width: 768px) {
+  .story-route-wrapper .section-1 p img,
+  .story-route-wrapper .section-2 p img,
+  .story-route-wrapper .section-3 p img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    object-fit: scale-down;
+    
+   
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  }
+}
+.story-route-wrapper .section-2 {
+  background-color: rgba(232, 117, 2, 0.401);
+  margin: 1rem auto;
+}
+
+.story-route-wrapper .section-3 {
+  background-color: transparent;
+  border: 1px solid #ff8400;
+  margin: 1rem auto;
+}
+/* .section-1 {
   
-  .section-2 {
-    background-color: #5ab15a; /* Light Green */
-    padding-top: 10px;
-    padding-bottom: 10px;
+  
+  
+  /* background-color: #aa6060; Light Red */
+    /* padding-top: 10px; */
+    /* padding-bottom: 10px; */
+  
+  
+  /* .section-2 {
+    @apply  bg-green-200  m-7 p-7
+    
   }
   
   .section-3 {
     background-color: #6464ba; /* Light Blue */
-    padding-top: 10px;
-    padding-bottom: 10px;
-  }
-  
-  .section-4 {
+     .section-4 {
     background-color: #b0b026; /* Light Yellow */
     padding-top: 10px;
     padding-bottom: 10px;
