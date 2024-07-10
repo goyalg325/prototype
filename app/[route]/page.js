@@ -46,7 +46,7 @@ const Page = ({ params }) => {
   return (
     // here adding design that should be evenly applied to complete page in outer div /*make sure to remove it*/
     <div className='bg-black'> 
-      <h1>{pageData.title}</h1>
+      {/* <h1>{pageData.title}</h1> */}
      <div className='story-route-wrapper'> {sections}  </div>
     </div>
   );
